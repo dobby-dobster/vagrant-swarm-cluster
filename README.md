@@ -4,8 +4,8 @@ Run a Swarm cluster locally using Vagrant.
 
 This will create and setup 2 Vagrant machines in a private network (10.0.7.0/24):
 
-* Swarm node 1 (manager): 10.0.7.10
-* Swarm node 2 (worker): 10.0.7.11
+* manager - 10.0.7.10
+* node 1 - 10.0.7.11
 
 # Requirements
 
@@ -20,7 +20,7 @@ Ensure you have a valid [Vagrant provider][vagrantprovider] installed.
 The first thing you must do is to start the Vagrant machines using your favorite provider:
 
 ```
-$ git clone https://github.com/deviantony/vagrant-swarm-cluster.git
+$ git clone https://github.com/dobby-dobster/vagrant-swarm-cluster.git
 $ cd vagrant-swarm-cluster
 $ vagrant up --provider virtualbox
 ```
