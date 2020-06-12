@@ -4,8 +4,13 @@ Run a Swarm cluster locally using Vagrant with nodes running RabbitMQ with produ
 
 This will create and setup two Vagrant machines in a private network (10.0.7.0/24):
 
+<<<<<<< HEAD
 * Swarm manager: 10.0.7.10
 * Swarm node (worker): 10.0.7.11
+=======
+* manager - 10.0.7.10
+* node 1 - 10.0.7.11
+>>>>>>> bf052e730c01f7e7f93f226eaf8347da2980e403
 
 # Requirements
 
