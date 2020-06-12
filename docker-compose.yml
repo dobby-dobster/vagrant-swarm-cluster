@@ -1,0 +1,44 @@
+version: '3'
+
+services:
+    rabbit:
+        image: 'rabbitmq:management'
+        ports:
+        # The standard AMQP protocol port
+            - '5672:5672'
+        # HTTP management UI
+            - '15672:15672'
+        networks:
+            - network
+    producer:
+        image: dobbydobster/vagrant_producer 
+        deploy:
+          replicas: 3
+        depends_on:
+            - rabbit
+        build: 
+          context: .
+          dockerfile: Dockerfile
+        networks:
+            - rabbit
+        command: /usr/local/bin/send.py
+        networks:
+            - network
+    consumer:
+        image: dobbydobster/vagrant_consumer
+        deploy:
+          replicas: 3
+        depends_on:
+            - rabbit
+        build:
+          context: .
+          dockerfile: Dockerfile
+        networks:
+            - rabbit
+        command: /usr/local/bin/fetch.py
+        networks:
+            - network
+
+networks:
+    network: {}
+
